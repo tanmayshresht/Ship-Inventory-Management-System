@@ -82,10 +82,20 @@ npm run dev
 
 ## Screenshots
 
-(Add screenshots here)
+### Login Page
+![Login](screenshots/login.png)
 
----
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Add Ship
+![Add Ship](screenshots/addship.png)
+
+### Ships List
+![Ships List](screenshots/ships.png)
 
 ## Author
 
 Tanmay Shresht
+
+- GitHub: https://github.com/tanmayshresht
