@@ -59,7 +59,7 @@ function ShipForm({
 
       if (editingShip) {
         await axios.put(
-          `http://localhost:5000/api/ships/${editingShip._id}`,
+          `https://ship-inventory-management-system.onrender.com/api/ships/${editingShip._id}`,
           formData,
           {
             headers: {
@@ -71,7 +71,7 @@ function ShipForm({
         toast.success("Ship Updated Successfully");
       } else {
         await axios.post(
-          "http://localhost:5000/api/ships",
+          "https://ship-inventory-management-system.onrender.com/api/ships",
           formData,
           {
             headers: {

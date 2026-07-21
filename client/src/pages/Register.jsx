@@ -2,36 +2,35 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
-     e.preventDefault();
+  const handleRegister = async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await axios.post(
-      "https://ship-inventory-management-system.onrender.com/api/auth/login",
-      {
-        email,
-        password,
-      }
-    );
+    try {
+      await axios.post(
+        "https://ship-inventory-management-system.onrender.com/api/auth/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("user", JSON.stringify(res.data.user));
+      alert("Registration Successful!");
 
-    alert("Login Successful!");
-    navigate("/dashboard");
-  }
-  catch (error) {
-    alert(
-      error.response?.data?.message || "Login Failed"
-    );
-  }
-};
+      navigate("/");
+    } catch (error) {
+      alert(
+        error.response?.data?.message || "Registration Failed"
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-900 to-sky-500 flex items-center justify-center">
@@ -42,8 +41,16 @@ function Login() {
         </h1>
 
         <p className="text-center text-gray-500 mb-8">
-          Login to continue
+          Create Account
         </p>
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full border p-3 rounded-lg mb-4"
+        />
 
         <input
           type="email"
@@ -51,7 +58,7 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full border p-3 rounded-lg mb-4"
-/>
+        />
 
         <input
           type="password"
@@ -62,24 +69,15 @@ function Login() {
         />
 
         <button
-          onClick={handleLogin}
-          className="w-full bg-blue-700 text-white py-3 rounded-lg hover:bg-blue-900 transition"
+          onClick={handleRegister}
+          className="w-full bg-green-700 text-white py-3 rounded-lg hover:bg-green-900 transition"
         >
-          Login
+          Register
         </button>
 
-        <p className="text-center mt-5">
-        Don't have an account?{" "}
-        <span
-        onClick={() => navigate("/register")}
-        className="text-blue-700 cursor-pointer font-semibold hover:underline"
-  >
-    Register
-  </span>
-</p>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

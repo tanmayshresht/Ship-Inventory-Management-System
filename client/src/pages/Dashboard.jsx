@@ -81,7 +81,7 @@ const totalPages = Math.ceil(
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/ships",
+      "https://ship-inventory-management-system.onrender.com/api/ships",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -119,7 +119,7 @@ const totalPages = Math.ceil(
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/ships/${id}`,
+        `https://ship-inventory-management-system.onrender.com/api/ships/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
