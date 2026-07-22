@@ -2,7 +2,13 @@
 
 A Full Stack Ship Inventory Management System built using React, Node.js, Express, MongoDB and JWT Authentication.
 
----
+## 🔗 Live Demo
+
+Frontend:
+https://ship-inventory-management-system.vercel.app
+
+Backend API:
+https://ship-inventory-management-system.onrender.com
 
 ## 🚀 Features
 
