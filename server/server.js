@@ -5,6 +5,9 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import shipRoutes from "./routes/shipRoutes.js";
+import portRoutes from "./routes/portRoutes.js";
+import inventoryRoutes from "./routes/inventoryRoutes.js";
+import shipmentRoutes from "./routes/shipmentRoutes.js";
 
 dotenv.config();
 
@@ -16,6 +19,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/ships", shipRoutes);
+app.use("/api/ports", portRoutes);
+app.use("/api/inventory", inventoryRoutes);
+app.use("/api/shipments", shipmentRoutes);
 
 app.get("/", (req, res) => {
   res.json({
